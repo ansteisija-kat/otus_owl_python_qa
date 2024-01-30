@@ -4,8 +4,6 @@ charset-normalizer==3.3.2
 dill==0.3.8
 distlib==0.3.7
 filelock==3.12.3
-flake8==7.0.0
-flake8-for-pycharm==0.4.1
 idna==3.4
 isort==5.13.2
 mccabe==0.7.0
