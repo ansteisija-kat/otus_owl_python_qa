@@ -1,4 +1,4 @@
-from Rectangle import Rectangle
+from src.Rectangle import Rectangle
 
 
 class Square(Rectangle):
@@ -12,5 +12,3 @@ class Square(Rectangle):
 
     def get_perimetr(self):
         return self.side_a * 4
-
-s = Square(3)

@@ -1,4 +1,4 @@
-from Square import Square
+from src.Square import Square
 from math import pi
 
 
@@ -12,13 +12,10 @@ class Circle(Square):
         diameter = self.side_a
         radius = diameter / 2
         area = pi * (radius ** 2)
-        return area
+        return round(area, 2)
 
     def get_perimetr(self):
         diameter = self.side_a
         radius = diameter / 2
         perimetr = 2 * pi * radius
         return perimetr
-
-
-s = Square(3)
