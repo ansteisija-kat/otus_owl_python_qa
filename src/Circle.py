@@ -1,12 +1,13 @@
-from src.Square import Square
+from src.Figure import Figure
 from math import pi
 
 
-class Circle(Square):
+class Circle(Figure):
     def __init__(self, side_a):
+        super().__init__(name="Circle")
         if side_a <= 0:
             raise ValueError("нельзя создать круг")
-        super().__init__(side_a)
+        self.side_a = side_a
 
     def get_area(self):
         diameter = self.side_a
@@ -17,5 +18,5 @@ class Circle(Square):
     def get_perimetr(self):
         diameter = self.side_a
         radius = diameter / 2
-        perimetr = 2 * pi * radius
+        perimetr = round(2 * pi * radius, 2)
         return perimetr

@@ -1,9 +1,10 @@
-from src.Rectangle import Rectangle
+from src.Figure import Figure
 from math import sqrt
 
 
-class Triangle(Rectangle):
+class Triangle(Figure):
     def __init__(self, side_a, side_b, side_c):
+        super().__init__(name="Triangle")
         if side_a <= 0 or side_b <= 0 \
                 or side_c <= 0:
             raise ValueError("нельзя создать треугольник")
@@ -11,7 +12,8 @@ class Triangle(Rectangle):
                 or (side_a + side_c) <= side_b \
                 or (side_b + side_c) <= side_a:
             raise ValueError("нельзя создать треугольник")
-        super().__init__(side_a, side_b)
+        self.side_a = side_a
+        self.side_b = side_b
         self.side_c = side_c
 
     def get_area(self):
