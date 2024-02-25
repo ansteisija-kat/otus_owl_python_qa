@@ -29,7 +29,6 @@ def create_basic_triangle():
             and (triangle_sides[1] + triangle_sides[2]) > triangle_sides[0]
         ):
             triangle = Triangle(triangle_sides[0], triangle_sides[1], triangle_sides[2])
-            print(triangle_sides)
             return triangle
 
 
@@ -39,8 +38,6 @@ def test_rectangle_basic_methods():
     area = rectangle.get_area()
     perimetr = rectangle.get_perimetr()
 
-    print('rectangle:', rectangle.side_a, rectangle.side_b)
-    print(area, perimetr)
     assert area > 0 and \
         perimetr > 0, \
         f'Area or perimetr are not correct'
@@ -49,8 +46,6 @@ def test_triangle_basic_methods(valid_triangle):
     area = valid_triangle.get_area()
     perimetr = valid_triangle.get_perimetr()
 
-    print('triangle:', valid_triangle.side_a, valid_triangle.side_b, valid_triangle.side_c)
-    print(area, perimetr)
     assert area > 0 and \
         perimetr > 0, \
         f'Area or perimetr are not correct'
@@ -59,8 +54,6 @@ def test_square_basic_methods():
     area = square.get_area()
     perimetr = square.get_perimetr()
 
-    print('triangle:', square.side_a)
-    print(area, perimetr)
     assert area > 0 and \
         perimetr > 0, \
         f'Area or perimetr are not correct'
@@ -69,8 +62,6 @@ def test_circle_basic_methods():
     area = circle.get_area()
     perimetr = circle.get_perimetr()
 
-    print('triangle:', circle.side_a)
-    print(area, perimetr)
     assert area > 0 and \
         perimetr > 0, \
         f'Area or perimetr are not correct'
