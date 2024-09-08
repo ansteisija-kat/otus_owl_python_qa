@@ -137,7 +137,8 @@ def test_negative_side_fails_rectangle(side_a, side_b):
         assert Rectangle(side_a, side_b) == rectangle_error
 
 
-@pytest.mark.parametrize('side_a, side_b, side_c', [(generate_whole_num(), generate_whole_num(), generate_negative_num())])
+@pytest.mark.parametrize('side_a, side_b, side_c',
+    [(generate_whole_num(), generate_whole_num(), generate_negative_num())])
 def test_negative_side_fails_triangle(side_a, side_b, side_c):
     with pytest.raises(ValueError):
         assert Triangle(side_a, side_b, side_c) == triangle_error
@@ -161,16 +162,16 @@ def test_negative_side_fails_circle(side_a):
         assert Circle(side_a) == circle_error
 
 
-@pytest.mark.parametrize('side_b', [0])
-def test_invalid_type_side_fails_rectangle(side_b):
-    with pytest.raises(TypeError):
-        assert Rectangle(generate_decimal_num, side_b)
+@pytest.mark.parametrize('side_a, side_b', [(generate_decimal_num(), 0)])
+def test_invalid_type_side_fails_rectangle(side_a, side_b):
+    with pytest.raises(ValueError):
+        assert Rectangle(side_a, side_b)
 
 
-@pytest.mark.parametrize('side_c', [''])
-def test_invalid_type_side_fails_triangle(side_c):
+@pytest.mark.parametrize('side_a, side_b, side_c', [(generate_whole_num(), generate_whole_num(), '')])
+def test_invalid_type_side_fails_triangle(side_a, side_b, side_c):
     with pytest.raises(TypeError):
-        assert Triangle(generate_whole_num(), generate_decimal_num, side_c)
+        assert Triangle(side_a, side_b, side_c)
 
 
 @pytest.mark.parametrize('side_a', ['_'])
@@ -185,28 +186,30 @@ def test_invalid_type_side_fails_square(side_a):
         assert Circle(side_a)
 
 
-@pytest.mark.parametrize('side_b', [generate_decimal_num()])
-def test_invalid_count_sides_fails_circle(side_b):
+@pytest.mark.parametrize('side_a, side_b', [(generate_whole_num(), generate_decimal_num())])
+def test_invalid_count_sides_fails_circle(side_a, side_b):
     with pytest.raises(TypeError):
-        assert Circle(generate_whole_num(), side_b)
+        assert Circle(side_a, side_b)
 
 
-@pytest.mark.parametrize('side_c', [generate_decimal_num()])
-def test_invalid_count_sides_fails_rectangle(side_c):
+@pytest.mark.parametrize('side_a, side_b, side_c',
+    [(generate_whole_num(), generate_whole_num(), generate_decimal_num())])
+def test_invalid_count_sides_fails_rectangle(side_a, side_b, side_c):
     with pytest.raises(TypeError):
-        assert Rectangle(generate_whole_num(), generate_decimal_num(), side_c)
+        assert Rectangle(side_a, side_b, side_c)
 
 
-@pytest.mark.parametrize('side_d', [generate_decimal_num()])
-def test_invalid_count_sides_fails_triangle(side_d):
+@pytest.mark.parametrize('side_a, side_b, side_c, side_d',
+    [(generate_whole_num(), generate_decimal_num(), generate_decimal_num(), generate_decimal_num())])
+def test_invalid_count_sides_fails_triangle(side_a, side_b, side_c, side_d):
     with pytest.raises(TypeError):
-        assert Triangle(generate_whole_num(), generate_decimal_num(), generate_decimal_num(), side_d)
+        assert Triangle(side_a, side_b, side_c, side_d)
 
 
-@pytest.mark.parametrize('side_b', [generate_decimal_num()])
-def test_invalid_count_sides_fails_square(side_b):
+@pytest.mark.parametrize('side_a, side_b', [(generate_whole_num(), generate_decimal_num())])
+def test_invalid_count_sides_fails_square(side_a, side_b):
     with pytest.raises(TypeError):
-        assert Square(generate_whole_num(), side_b)
+        assert Square(side_a, side_b)
 
 
 @pytest.mark.parametrize('side_a, side_b, side_c', [(1, 2, 3), (1, 0.55886, 2), (10, 5.7, 3), (6, 12, 4)])
